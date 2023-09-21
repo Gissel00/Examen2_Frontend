@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import{HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
+import { LayoutModule } from './layout/layout.module';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { SucusalModule } from './features/sucursales/sucursal.module';
+import { UsuarioModule } from './features/usuarios/usuario.module';
+import { LibroModule } from './features/libros/libro.module';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    
+    AppRoutingModule,
+    LayoutModule,
+    SucusalModule,
+    UsuarioModule,
+    LibroModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

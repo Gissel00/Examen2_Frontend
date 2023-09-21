@@ -1,0 +1,67 @@
+<br><br>
+<div class="row">
+    <div class="col-12">
+        <h1 style="text-align: center;">Usuarios</h1>
+    </div>
+</div>
+
+<br><br>
+
+<section>
+<div [formGroup]="usuarioForm" class="row">
+
+    <div class="col-4">
+        <dx-text-box formControlName="nombre" label="Nombre" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="email" label="Email" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="password" label="Password" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="img" label="Imagen" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="role" label="Rol" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="google" label="Google" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="uid" label="Codigo usuario" labelMode="floating"  [readOnly]="true" [visible]="false"></dx-text-box>
+    </div>
+</div>
+</section>
+
+<br><br>
+
+<div class="col-12 text-end">
+    <dx-button class="mb-2" text="Agregar" icon="add" (onClick)="onAgregar()" [disabled]="usuarioForm.invalid"></dx-button>
+    <dx-button class="ms-2 mb-2" text="Actualizar" icon="refresh" (onClick)="onActualizar()" 
+    [disabled]="usuarioForm.invalid"></dx-button>
+    <dx-button class="ms-2 mb-2" text="Eliminar" icon="trash" (onClick)="onDelete()" 
+    [disabled]="usuarioForm.invalid"></dx-button> 
+</div>
+
+<div class="col-20">
+    <dx-data-grid [dataSource]="usuarios" [showBorders]="true" [showRowLines]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true">
+        
+        <!-- <dxo-paging [enabled]="false"></dxo-paging>
+        <dxo-editing [allowUpdating]="true" ></dxo-editing>
+        <dxo-editing  [allowDeleting]="true" ></dxo-editing> -->
+
+        <dxi-column dataField="uid" caption="Código" [width]="70"></dxi-column>
+        <dxi-column dataField="nombre"></dxi-column>      
+        <dxi-column dataField="img" caption="Imagen"></dxi-column>        
+        <dxi-column dataField="email"></dxi-column>   
+        <dxi-column dataField="password"></dxi-column>  
+        <dxi-column dataField="role"></dxi-column>  
+        <dxi-column dataField="google"></dxi-column>  
+
+        <dxi-column type="buttons" width="110">
+            <dxi-button name="edit" text="Editar" [onClick]="onMostrar"></dxi-button>
+            <dxi-button name="delete" text="Eliminar" [onClick]="onMostrar"></dxi-button>
+        </dxi-column>
+    </dx-data-grid>
+</div>

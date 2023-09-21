@@ -1,0 +1,52 @@
+<br><br>
+<div class="row">
+    <div class="col-12">
+        <h1 style="text-align: center;">Sucursales</h1>
+    </div>
+</div>
+
+<br><br>
+
+<section>
+<div [formGroup]="sucursalForm" class="row">
+
+    <div class="col-4">
+        <dx-text-box formControlName="nombre" label="Nombre" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="img" label="Imagen" labelMode="floating"></dx-text-box>
+    </div>
+    <div class="col-4">
+        <dx-text-box formControlName="usuario" label="Usuarios" labelMode="floating"></dx-text-box>
+    </div>
+</div>
+</section>
+
+<br><br>
+
+<div class="col-12 text-end">
+    <dx-button class="mb-2" text="Agregar" icon="add" (onClick)="onAgregar()" [disabled]="sucursalForm.invalid"></dx-button>
+    <dx-button class="ms-2 mb-2" text="Actualizar" icon="refresh" (onClick)="onActualizar()" 
+    [disabled]="sucursalForm.invalid"></dx-button>
+    <dx-button class="ms-2 mb-2" text="Eliminar" icon="trash" (onClick)="onDelete()" 
+    [disabled]="sucursalForm.invalid"></dx-button> 
+</div>
+
+<div class="col-20">
+    <dx-data-grid [dataSource]="sucursales" [showBorders]="true" [showRowLines]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true">
+        
+        <!-- <dxo-paging [enabled]="false"></dxo-paging>
+        <dxo-editing [allowUpdating]="true" ></dxo-editing>
+        <dxo-editing  [allowDeleting]="true" ></dxo-editing> -->
+
+        <dxi-column dataField="sid" caption="Código" [width]="70"></dxi-column>
+        <dxi-column dataField="nombre"></dxi-column>      
+        <dxi-column dataField="img" caption="Imagen"></dxi-column>        
+        <dxi-column dataField="usuario" caption="Usuario Registra"></dxi-column>   
+
+        <dxi-column type="buttons" width="110">
+            <dxi-button name="edit" text="Editar" [onClick]="onMostrar"></dxi-button>
+            <dxi-button name="delete" text="Eliminar" [onClick]="onMostrar"></dxi-button>
+        </dxi-column>
+    </dx-data-grid>
+</div>
